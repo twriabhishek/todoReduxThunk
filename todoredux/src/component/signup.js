@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
+import {endpoints} from '../ApiEndpoint.js';
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -24,7 +25,7 @@ const Signup = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:8000/api/v1/auth/signup", {
+      const response = await fetch(endpoints.signupAuth, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

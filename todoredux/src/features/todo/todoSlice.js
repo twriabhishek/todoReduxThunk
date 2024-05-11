@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import {endpoints} from '../../ApiEndpoint'
 
 const initialState = {
   todos: [],
@@ -7,7 +8,7 @@ const initialState = {
 };
 
 export const getAllTodo = createAsyncThunk("getAllTodo", async () => {
-  const response = await fetch("http://localhost:8000/api/v1/todo/getalltask", {
+  const response = await fetch(endpoints.getAllTodos, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -22,7 +23,7 @@ export const addTodo = createAsyncThunk("addTodo", async (task) => {
   let taskdetail = {
     title: task,
   };
-  const response = await fetch("http://localhost:8000/api/v1/todo/addtask", {
+  const response = await fetch(endpoints.addTodo, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -39,7 +40,7 @@ export const updateTodo = createAsyncThunk("updateTodo", async (task) => {
     taskId: task.id,
     title: task.text,
   };
-  const response = await fetch("http://localhost:8000/api/v1/todo/updatetask", {
+  const response = await fetch(endpoints.updateTodo, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -55,7 +56,7 @@ export const deleteTodo = createAsyncThunk("deleteTodo", async (id) => {
   let taskdetail = {
     taskId: id,
   };
-  const response = await fetch("http://localhost:8000/api/v1/todo/deletetask", {
+  const response = await fetch(endpoints.deleteTodo, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -114,7 +115,5 @@ export const todoSlice = createSlice({
     });
   },
 });
-
-export const { getTodo } = todoSlice.actions;
 
 export default todoSlice.reducer;
