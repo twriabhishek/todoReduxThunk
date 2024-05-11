@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Jost:wght@900&family=Poppins:wght@300&family=Roboto:wght@300;400;700;900&family=Urbanist:ital,wght@0,700;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Urbanist", sans-serif;
+}
+
+.common-heading{
+  font-size: 2.5rem;
+  font-weight: 900;
+}
+
+.todo-container{
+  max-height: 85vh;
+  overflow-y: scroll;
+}
+
+.required::after {
+  content: ' *';
+  color: red;
+}
