@@ -32,7 +32,9 @@ const Login = () => {
       });
       if (response.ok) {
         const data = await response.json();
-        console.log(response.status, data);
+        const token = data.token;
+        console.log("token", token);
+        localStorage.setItem("token", token);
         toast.success("Login Successfully");
         setTimeout(() => {
           navigate("/todo");

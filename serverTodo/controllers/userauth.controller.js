@@ -25,7 +25,7 @@ const handleloginAuth = async (req, res) => {
     res.cookie("token", token, { httpOnly: true, secure: true });
 
     // Send a success response
-    return res.status(200).json({ message: "Login successful" });
+    return res.status(200).json({ message: "Login successful", token: token });
   } catch (error) {
     // Handle any errors
     console.error("Error occurred during signup:", error);

@@ -1,6 +1,7 @@
 {
   "name": "todoredux",
   "version": "0.1.0",
+  "homepage": "/login",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.3",

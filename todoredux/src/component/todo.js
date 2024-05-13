@@ -33,7 +33,6 @@ const Todo = () => {
 
   const todos = useSelector((state) => state.todos);
   const isLoading = useSelector((state) => state.isLoading);
-  console.log(isLoading);
 
   const handleAdd = (e) => {
     e.preventDefault();
@@ -108,6 +107,7 @@ const Todo = () => {
       if (response.ok) {
         const data = await response.json();
         console.log(response.status, data);
+        localStorage.removeItem("token");
         toast.success("Logout Successfully");
         setTimeout(() => {
           navigate("/login");

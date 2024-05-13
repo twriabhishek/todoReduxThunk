@@ -12,7 +12,7 @@ const handleAddTask = async (req, res) => {
     const newTask = new Todo({
       title: title,
       description: description,
-      createdBy: req.user._id, // Assuming req.user contains the user object with its _id field
+      createdBy: req.user._id,
     });
 
     await newTask.save();

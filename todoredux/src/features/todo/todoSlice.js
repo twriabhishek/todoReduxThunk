@@ -16,7 +16,6 @@ export const getAllTodo = createAsyncThunk("getAllTodo", async () => {
     },
     credentials: "include",
   });
-  console.log(response);
   return response.json();
 });
 
@@ -32,7 +31,6 @@ export const getSingleTodo = createAsyncThunk("getSingleTodo", async (todoId) =>
     body: JSON.stringify(taskdetail),
     credentials: "include",
   });
-  console.log(response);
   return response.json();
 });
 
@@ -139,7 +137,6 @@ export const todoSlice = createSlice({
     });
     builder.addCase(getSingleTodo.fulfilled, (state, action) => {
       state.isLoading = false;
-      console.log(action.payload);
     });
     builder.addCase(getSingleTodo.rejected, (state, action) => {
       state.isError = true;
